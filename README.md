@@ -1,8 +1,8 @@
 # SkyDisplay
 
-##Requirements:
+## Requirements:
 - And OLED SSD1306 on i2c
-- you need latest *[luma.oled]*(https://luma-oled.readthedocs.io/en/latest/install.html)
+- you need latest [luma.oled](https://luma-oled.readthedocs.io/en/latest/install.html)
 - check if your device is available [here](https://github.com/rm-hull/luma.oled/wiki/Usage-&-Benchmarking)
 
 ## Installation & usage
@@ -22,5 +22,6 @@ Then use `crontab -e` to setup a schedule and add those lines:
 * 8 * * * /home/pi/SkyDisplay/OLEDSkycoinDisplay.py
 * 19 * * * kill $(cat /home/pi/SkyDisplay/pid.txt)
 ```
-Replace `/home/pi` with the location you cloned the repository.
+Replace `/home/pi` with the location where you cloned the repository.
+
 Next profit!
