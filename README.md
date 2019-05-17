@@ -11,7 +11,10 @@
 cd ~
 git clone https://github.com/mrtom31/SkyDisplay.git
 cd SkyDisplay
+echo "SKYCOIN PASSWORD">secret.txt
 ```
+`"SKYCOIN PASSWORD"` relate to your password you use to connect to the API locahost:8000
+
 ### Usage
 Check if it works first:
 ```
