@@ -37,7 +37,8 @@ for y in range(h-device.height):
     virtual.display(logo)
 
 maskStatus = {0 : 'FAIL', 1 : 'GOOD'}
-api = SkyAPI(secret=open('secret.txt', 'r').readline().rstrip())
+secret_path = os.path.join(dirname, 'secret.txt')
+api = SkyAPI(secret=open(secret_path, 'r').readline().rstrip())
 api.update()
 nbNodes = len(api.nodesInfo)
 virtual = viewport(device, width=device.width, height=(nbNodes + 1) * sizeChar)
