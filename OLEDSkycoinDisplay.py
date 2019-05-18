@@ -13,7 +13,6 @@ from luma.core.virtual import viewport
 import operator
 import os
 
-time.sleep(10)
 #Save pid for crontab to kil process
 file = open("pid.txt", "w")
 file.write(str(os.getpid()))
@@ -32,9 +31,12 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
 logo = Image.open(img_path).convert(device.mode)
 w, h = logo.size
 virtual = viewport(device, width=device.width, height=h)
-for y in range(h-device.height):
+
+y = 0
+while y < (h-device.height):
     virtual.set_position((0, y))
     virtual.display(logo)
+    y += 4
 
 maskStatus = {0 : 'FAIL', 1 : 'GOOD'}
 secret_path = os.path.join(dirname, 'secret.txt')
