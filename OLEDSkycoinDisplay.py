@@ -37,6 +37,7 @@ while y < (h-device.height):
     virtual.set_position((0, y))
     virtual.display(logo)
     y += 4
+del logo #free Image memory
 
 maskStatus = {0 : 'FAIL', 1 : 'GOOD'}
 secret_path = os.path.join(dirname, 'secret.txt')
@@ -62,4 +63,3 @@ while True:
         virtual.set_position((0, y))
         time.sleep(0.01)
     time.sleep(2)
-    
