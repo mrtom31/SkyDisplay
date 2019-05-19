@@ -22,7 +22,7 @@ python OLEDSkycoinDisplay.py
 ```
 Then use `crontab -e` to setup a schedule and add those lines:
 ```
-* 8 * * * /home/pi/SkyDisplay/OLEDSkycoinDisplay.py
+* 8 * * * /usr/bin/python3 /home/pi/SkyDisplay/OLEDSkycoinDisplay.py
 * 19 * * * kill $(cat /home/pi/SkyDisplay/pid.txt)
 ```
 Replace `/home/pi` with the location where you cloned the repository.
