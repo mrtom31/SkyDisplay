@@ -13,7 +13,7 @@ def post(*args, **kwargs):
     try:
         resp = requests.post(*args, **kwargs)
     except requests.ConnectionError:
-        print("failed to connect")
+        raise Exception("failed to connect")
     if not (200 <= resp.status_code < 300):
         raise Exception('status code: {} outside of 2xx range'.format(resp.status_code))
     return resp
@@ -23,7 +23,7 @@ def get(*args, **kwargs):
     try:
         resp = requests.get(*args, **kwargs)
     except requests.ConnectionError:
-        print("failed to connect")
+        raise Exception("failed to connect")
     if not (200 <= resp.status_code < 300):
         raise Exception('status code: {} outside of 2xx range'.format(resp.status_code))
     return resp
@@ -90,3 +90,15 @@ class SkyAPI(object):
         self.getNodesKeys()
         self.getNodesAddr()
         self.getNodesInfo()
+
+    def uptime(self):
+        try:
+            from BeautifulSoup import BeautifulSoup
+        except ImportError:
+            from bs4 import BeautifulSoup
+        import json
+        headers = 'https://skywirenc.com'
+        for key in self.nodesKeys:
+            res = get(headers, data = {'key_list': key})
+            parsed_html = BeautifulSoup(res.text)
+            print(parsed_html.body.find('div', attrs={'class':'container'}).text)
